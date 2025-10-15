@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.menu a.active {
+  color: #007bff; /* Màu xanh nổi bật */
+  border-bottom: 2px solid #007bff;
+}

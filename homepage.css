@@ -171,59 +171,41 @@ body {
   padding: 0 40px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 60px;
 }
 
-/* Cấu trúc chung của mỗi feature */
 .feature {
   display: flex;
-  align-items: stretch; /* giúp khung chữ và ảnh cao đều nhau */
-  justify-content: space-between;
-  gap: 40px;
+  align-items: center;
+  gap: 60px;
 }
 
-/* Ảnh bên trái */
-.feature--img-left {
-  flex-direction: row; /* ảnh trước, chữ sau */
+.feature.reverse {
+  flex-direction: row-reverse; /* xen kẽ hình và chữ */
 }
 
-/* Ảnh bên phải */
-.feature--img-right {
-  flex-direction: row-reverse; /* ảnh sau, chữ trước */
-}
-
-/* Ảnh tròn */
 .feature-image img {
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Khối chữ */
 .feature-text {
   background-color: #f9f9f9;
   padding: 30px;
   border-radius: 10px;
-  width: 700px;        /* chiều rộng cố định */
-  height: 300px;       /* chiều cao cố định */
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
 }
 
-/* Tiêu đề */
 .feature-text h5 {
   font-weight: bold;
   color: #333;
   margin-bottom: 15px;
-  font-size: 20px;
+  text-align: center;
 }
 
-/* Nội dung */
 .feature-text p {
   color: #444;
   line-height: 1.6;
@@ -231,28 +213,19 @@ body {
   text-align: justify;
 }
 
-/* Responsive cho mobile */
+/* Responsive */
 @media (max-width: 992px) {
-  .feature,
-  .feature--img-left,
-  .feature--img-right {
+  .feature {
     flex-direction: column;
-    align-items: center;
   }
 
-  .feature-text {
-    width: 100%;
-    height: auto;
-    text-align: center;
-  }
-
-  .feature-text p {
-    text-align: center;
+  .feature.reverse {
+    flex-direction: column;
   }
 
   .feature-image img {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
   }
 }
 
