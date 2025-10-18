@@ -1,16 +1,147 @@
+body {
+    background-color: #713C48;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  display: flex;
+  justify-content: space-between; /* chia 2 phần: logo - menu */
+  align-items: center;
+  background-color: white;
+  padding: 15px 60px;
+}
+
+.logo img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+
+/* MENU */
 .menu {
   display: flex;
   gap: 20px;
   align-items: center;
+  gap: 60px; /* khoảng cách giữa các mục menu */
 }
 
 .menu a {
   text-decoration: none;
   color: black;
   font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
 }
 
-.menu a.active {
-  color: #007bff; /* Màu xanh nổi bật */
-  border-bottom: 2px solid #007bff;
+.menu a:hover {
+  color: #FF4C4C;
+}
+
+/* BOOK BUTTON */
+.book-btn {
+  background-color: #FF4C4C;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.book-btn:hover {
+  background-color: #e43e3e;
+}
+
+
+.features-section {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin: 40px 0;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.feature--img-left .feature-image {
+  order: 1;
+}
+
+.feature--img-left .feature-text {
+  order: 2;
+}
+
+.feature--img-right .feature-image {
+  order: 2;
+}
+
+.feature--img-right .feature-text {
+  order: 1;
+}
+
+.feature-image img {
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-text h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feature-text p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.feature-gallery {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.feature-gallery img {
+  width: 150px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.feature-gallery img:hover {
+  transform: scale(1.05);
+}
+
+.book-btn {
+  background-color: #e8e8e8;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.book-btn:hover {
+  background-color: #ccc;
+}
+
+.container image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
