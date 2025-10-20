@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box; /* khi thêm padđing/border thì kích thước vẫn sẽ giữ nguyên, k tăng thêm */
+}
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  margin: 0;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  display: flex;
+  justify-content: space-between; /* chia 2 phần: logo - menu */
+  align-items: center;
+  background-color: white;
+  padding: 15px 60px;
+}
+
+.logo img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* khoảng cách giữa các mục menu */
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #FF4C4C;
+}
+
+.container {
+  padding: 40px;
+  text-align: center;
+}
+
+.form {
+  display: inline-block; /* nằm trên cùng một dòng nhưng có thể chỉnh sửa kích thước */
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 90%;
+}
+
+label {
+  display: block; /* chiếm hết 1 dòng của trang */
+  margin: 10px 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  background: #ff7a00;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #e36b00;
+}
+
+#msg {
+  margin-top: 20px;
+}

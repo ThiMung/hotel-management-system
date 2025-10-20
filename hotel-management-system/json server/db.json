@@ -1,0 +1,370 @@
+{
+    "rooms": [
+        {
+            "id": 1,
+            "name": "Single Room 1",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 2,
+            "name": "Single Room 2",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 3,
+            "name": "Single Room 3",
+            "type": "Single",
+            "price": 600000,
+            "status": "booked",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 4,
+            "name": "Single Room 4",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 5,
+            "name": "Single Room 5",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 6,
+            "name": "Single Room 6",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 7,
+            "name": "Single Room 7",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 8,
+            "name": "Single Room 8",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 9,
+            "name": "Single Room 9",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 10,
+            "name": "Single Room 10",
+            "type": "Single",
+            "price": 600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-10.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 11,
+            "name": "Double Room 1",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 12,
+            "name": "Double Room 2",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 13,
+            "name": "Double Room 3",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 14,
+            "name": "Double Room 4",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 15,
+            "name": "Double Room 5",
+            "type": "Double",
+            "price": 1000000,
+            "status": "booked",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 16,
+            "name": "Double Room 6",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 17,
+            "name": "Double Room 7",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 18,
+            "name": "Double Room 8",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 19,
+            "name": "Double Room 9",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 20,
+            "name": "Double Room 10",
+            "type": "Double",
+            "price": 1000000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-11.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 21,
+            "name": "Family Room 1",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 22,
+            "name": "Family Room 2",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 23,
+            "name": "Family Room 3",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 24,
+            "name": "Family Room 4",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 25,
+            "name": "Family Room 5",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 26,
+            "name": "Family Room 6",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 27,
+            "name": "Family Room 7",
+            "type": "Family",
+            "price": 1600000,
+            "status": "booked",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 28,
+            "name": "Family Room 8",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 29,
+            "name": "Family Room 9",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 30,
+            "name": "Family Room 10",
+            "type": "Family",
+            "price": 1600000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 31,
+            "name": "VIP Room 1",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 32,
+            "name": "VIP Room 2",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 33,
+            "name": "VIP Room 3",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "booked",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 34,
+            "name": "VIP Room 4",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 35,
+            "name": "VIP Room 5",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 36,
+            "name": "VIP Room 6",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 37,
+            "name": "VIP Room 7",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 38,
+            "name": "VIP Room 8",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 39,
+            "name": "VIP Room 9",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        },
+        {
+            "id": 40,
+            "name": "VIP Room 10",
+            "type": "VIP",
+            "price": 2800000,
+            "status": "available",
+            "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+        }
+    ],
+    "customers": [
+        {
+            "id": 1,
+            "name": "Nguyen Van A",
+            "phone": "0912345678",
+            "email": "vana@example.com"
+        },
+        {
+            "id": 2,
+            "name": "Tran Thi B",
+            "phone": "0987654321",
+            "email": "thib@example.com"
+        },
+        {
+            "id": 3,
+            "name": "Le Van C",
+            "phone": "0905123456",
+            "email": "vanc@example.com"
+        }
+    ],
+    "bookings": [
+        {
+            "id": 1,
+            "customerId": 1,
+            "roomId": 3,
+            "checkIn": "2025-10-05",
+            "checkOut": "2025-10-07",
+            "status": "completed"
+        },
+        {
+            "id": 2,
+            "customerId": 2,
+            "roomId": 15,
+            "checkIn": "2025-10-08",
+            "checkOut": "2025-10-10",
+            "status": "confirmed"
+        },
+        {
+            "id": 3,
+            "customerId": 3,
+            "roomId": 33,
+            "checkIn": "2025-10-10",
+            "checkOut": "2025-10-12",
+            "status": "pending"
+        }
+    ]
+}
