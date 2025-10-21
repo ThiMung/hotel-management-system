@@ -15,7 +15,7 @@ if (registerForm) {
     // Kiểm tra trùng email
     const exist = users.find((u) => u.email === email);
     if (exist) {
-      alert("Email đã được đăng ký!");
+      alert("Email has been registered!");
       return;
     }
 
@@ -25,7 +25,7 @@ if (registerForm) {
       body: JSON.stringify({ name, email, password })
     });
 
-    alert("Đăng ký thành công!");
+    alert("Registration successful!");
     window.location.href = "login.html";
   });
 }
@@ -43,12 +43,12 @@ if (loginForm) {
     const user = users.find((u) => u.email === email && u.password === password);
 
     if (!user) {
-      alert("Sai email hoặc mật khẩu!");
+      alert("Wrong email or phone number!");
       return;
     }
 
     localStorage.setItem("loggedInUser", JSON.stringify(user));
-    alert("Đăng nhập thành công!");
+    alert("Login successful!");
     window.location.href = "index.html";
   });
 }
@@ -58,7 +58,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("loggedInUser");
-    alert("Bạn đã đăng xuất!");
+    alert("You're logout!");
     window.location.href = "login.html";
   });
 }
