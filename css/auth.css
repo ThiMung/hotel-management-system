@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff7e6;
+  background-color: #713C48;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ body {
 
 .auth-container h2 {
   margin-bottom: 15px;
-  color: #ff7b00;
+  color: #fbba17;
 }
 
 .auth-container input {
@@ -31,7 +31,7 @@ body {
 }
 
 .auth-container button {
-  background: #ff7b00;
+  background: #fba017;
   border: none;
   color: #fff;
   padding: 10px;
