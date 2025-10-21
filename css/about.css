@@ -1,10 +1,10 @@
 /* --- RESET --- */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #713C48;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #f4f1f1;
 }
 
 /* NAVBAR */
@@ -70,13 +70,13 @@ main {
 
 h1 {
   margin-top: 20px;
-  color: #333;
+  color: #f5f3f3;
 }
 
 .about-text {
   max-width: 700px;
   margin: 20px auto;
-  color: #555;
+  color: #f8f3f3;
   font-size: 18px;
   line-height: 1.6;
 }
