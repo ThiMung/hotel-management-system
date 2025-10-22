@@ -1,0 +1,239 @@
+body {
+    background-color: #713C48;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  display: flex;
+  justify-content: space-between; /* chia 2 phần: logo - menu */
+  align-items: center;
+  background-color: white;
+  padding: 15px 60px;
+}
+
+.logo img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* khoảng cách giữa các mục menu */
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #ea3434;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  background-color: #f62424;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #2b8d9e;
+}
+
+/* === BANNER === */
+.banner {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* === IMAGE GRID (đẹp, cân đối) === */
+/* === IMAGE GRID (kiểu image-row đẹp, đều, dễ nhìn) === */
+.image-grid {
+  margin-top: 30px;
+  padding: 20px -20px;
+}
+
+.image-grid .row {
+  display: flex;
+  justify-content: space-between;  /* Chia đều 3 ảnh 1 hàng */
+  gap: 20px;                       /* Khoảng cách giữa ảnh */
+  flex-wrap: wrap;                 /* Tự xuống dòng nếu hẹp */
+}
+
+.image-grid .col-md-4 {
+  flex: 1;                         /* Mỗi cột chiếm đều nhau */
+}
+
+.image-grid .panel-body {
+  padding: 0;
+  margin: -10px;
+}
+
+.image-grid .panel-body img {
+  width: 100%;                     /* Ảnh chiếm hết khung */
+  height: 250px;                   /* Chiều cao cố định */
+  object-fit: cover;               /* Cắt ảnh cho đẹp */
+  border-radius: 8px;              /* Bo góc nhẹ */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid .panel-body img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive: màn hình nhỏ hơn 768px -> 1 ảnh 1 hàng */
+@media (max-width: 768px) {
+  .image-grid .row {
+    flex-direction: column;
+  }
+  .image-grid .col-md-4 {
+    width: 100%;
+  }
+}
+
+/* HÀNG TRÊN: ảnh + text */
+.feature-top {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  gap: 30px;
+  padding: 20px;
+}
+
+.feature-top img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.feature-text {
+  background-color: #e6e6e6;
+  padding: 25px 30px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.feature-text h3 {
+  margin-top: 0;
+  font-weight: 700;
+}
+
+.feature-text p {
+  line-height: 1.6;
+  font-size: 15px;
+  color: #333;
+}
+
+/* HÀNG DƯỚI: 3 ảnh nhỏ */
+/* === IMAGE GRID === */
+.image-row {
+  display: flex;
+  justify-content: space-between;  /* Chia đều vị trí các ảnh */
+  gap: 20px;                       /* Khoảng cách giữa ảnh */
+  padding: 20px;
+  margin-top: 0;
+}
+
+.image-row > div {
+  flex: 1;                         /* Chia đều 3 cột */
+}
+
+.image-row img {
+  width: 100%;                     /* Ảnh chiếm hết khung */
+  height: 250px;                   /* Chiều cao cố định */
+  object-fit: cover;              /* Cắt ảnh đẹp */
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-row img:hover {
+  transform: scale(1.03);
+}
+
+/* NÚT BOOK */
+.book-btn {
+  display: block;
+  width: 140px;
+  margin: 5px auto -20px;
+  padding: 10px 0;
+  position: relative;
+  left: 500px;
+  background-color: #2b9471;
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+
+    .book-btn:hover {
+      background-color: #d64b4b;
+      color: white;
+    }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar-custom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  .banner-text {
+    font-size: 20px;
+  }
+}
+/* FOOTER */
+footer {
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+}
