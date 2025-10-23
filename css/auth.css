@@ -1,45 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #713C48;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #713C48;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
 }
 
 .auth-container {
-    background: #fff;
-    padding: 20px 30px;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    width: 320px;
-    text-align: center;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 320px;
+  text-align: center;
 }
 
 .auth-container h2 {
-    margin-bottom: 15px;
-    color: #ff7a00;
+  margin-bottom: 20px;
+  color: #fbba17;
+  font-size: 24px;
 }
 
 .auth-container input {
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
 }
 
 .auth-container button {
-    background: #ff7a00;
-    border: none;
-    color: #fff;
-    padding: 10px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
+  background: #fba017;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px; /* Thêm cho dễ nhìn */
+  margin-top: 10px;
 }
 
 .auth-container button:hover {
-    background: #e36b00;
+  background: #e56a00;
+}
+
+/* Thêm phần link đăng ký */
+.auth-container p {
+  margin-top: 15px;
+  color: #666;
+}
+
+.auth-container a {
+  color: #fba017;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
 }
