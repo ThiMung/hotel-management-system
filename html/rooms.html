@@ -7,6 +7,7 @@
   <title>NMT Hotel</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/rooms.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -23,10 +24,24 @@
             <a href="rooms.html" class="active">ROOMS</a>
             <a href="services.html">SERVICES</a>
             <a href="about.html">ABOUT</a>
-      <button class="nav-btn">SIGN IN</button>
-      <button class="nav-btn">REGISTER</button>
+            <img src="../image/user-avata.png" alt="User avata" class="avata">
         </div>
     </nav>
+
+  <!-- Search and Filter -->
+  <div class="search-filter-container">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search rooms by name..." aria-label="Search rooms">
+      <i class="bi bi-search"></i>
+    </div>
+    <select id="roomTypeFilter" aria-label="Filter by room type">
+      <option value="all">All Room Types</option>
+      <option value="single">Single Rooms</option>
+      <option value="double">Double Rooms</option>
+      <option value="family">Family Rooms</option>
+      <option value="vip">VIP Rooms</option>
+    </select>
+  </div>
 
   <div class="banner">
     <img src="../image/hinhchinh.jpg">
@@ -46,7 +61,7 @@
     </div>
   </div>
 
-  <section class="feature-section">
+  <section class="feature-section" data-room-type="single">
     <!-- Hàng trên -->
     <div class="feature-top">
       <img src="../image/phongdon11.jpg" alt="Prime Location">
@@ -69,10 +84,10 @@
     </div>
 
     <!-- Nút BOOK -->
-    <button class="book-btn">BOOK</button>
+    <a href="booking.html?room=single" class="book-btn">BOOK</a>
   </section>
 
-  <section class="feature-section">
+  <section class="feature-section" data-room-type="double">
     <!-- Hàng trên -->
     <div class="feature-top">
       <img src="../image/doi.jpg" alt="Prime Location">
@@ -95,10 +110,10 @@
     </div>
 
     <!-- Nút BOOK -->
-    <button class="book-btn">BOOK</button>
+    <a href="booking.html?room=double" class="book-btn">BOOK</a>
   </section>
 
-  <section class="feature-section">
+  <section class="feature-section" data-room-type="family">
     <!-- Hàng trên -->
     <div class="feature-top">
       <img src="../image/gia.jpg" alt="Prime Location">
@@ -122,10 +137,10 @@
     </div>
 
     <!-- Nút BOOK -->
-    <button class="book-btn">BOOK</button>
+    <a href="booking.html?room=family" class="book-btn">BOOK</a>
   </section>
 
-  <section class="feature-section">
+  <section class="feature-section" data-room-type="vip">
     <!-- Hàng trên -->
     <div class="feature-top">
       <img src="../image/vip.jpg" alt="Prime Location">
@@ -148,13 +163,49 @@
     </div>
 
     <!-- Nút BOOK -->
-    <button class="book-btn">BOOK</button>
+    <a href="booking.html?room=vip" class="book-btn">BOOK</a>
   </section>
 
   <!-- Footer -->
   <footer>
     &copy; 2025 NMT Hotel. All rights reserved.
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('searchInput');
+      const roomTypeFilter = document.getElementById('roomTypeFilter');
+      const sections = document.querySelectorAll('.feature-section');
+
+      if (!searchInput || !roomTypeFilter) {
+        console.error("Search input or filter dropdown not found!");
+        return;
+      }
+
+      function filterRooms() {
+        const searchText = searchInput.value.toLowerCase().trim();
+        const selectedType = roomTypeFilter.value;
+
+        sections.forEach(section => {
+          const roomTitle = section.querySelector('h3')?.textContent.toLowerCase() || '';
+          const roomType = section.getAttribute('data-room-type') || '';
+
+          const matchesSearch = roomTitle.includes(searchText);
+          const matchesType = selectedType === 'all' || roomType === selectedType;
+
+          if (matchesSearch && matchesType) {
+            section.classList.remove('hidden');
+          } else {
+            section.classList.add('hidden');
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', filterRooms);
+      roomTypeFilter.addEventListener('change', filterRooms);
+    });
+  </script>
+
 </body>
 
 </html>

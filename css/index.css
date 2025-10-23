@@ -45,6 +45,14 @@ body {
   border-bottom: 2px solid #FF4C4C;
 }
 
+.menu .avata {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #333;
+}
+
 /* BOOK BUTTON */
 .book-btn {
   background-color: #f62424;

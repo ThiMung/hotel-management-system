@@ -1,13 +1,14 @@
 const apiUrl = "http://localhost:3000/customers";
 
-// Đăng ký
+// ----------- ĐĂNG KÝ -----------
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   registerForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const phone = document.getElementById("phone").value.trim();
 
     const res = await fetch(apiUrl);
     const users = await res.json();
@@ -19,28 +20,32 @@ if (registerForm) {
       return;
     }
 
+    // Tạo tài khoản mới
     await fetch(apiUrl, {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ name, email, password })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone }),
     });
 
     alert("Registration successful!");
-    window.location.href = "login.html";
+    window.location.href = "login.html"; // Chuyển sang trang login
   });
 }
 
-// Đăng nhập
+// ----------- ĐĂNG NHẬP -----------
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const phone = document.getElementById("phone").value.trim();
 
     const res = await fetch(apiUrl);
     const users = await res.json();
-    const user = users.find((u) => u.email === email && u.password === password);
+
+    // Kiểm tra đúng email và phone
+    const user = users.find((u) => u.email === email && u.phone === phone);
 
     if (!user) {
       alert("Wrong email or phone number!");
@@ -49,16 +54,16 @@ if (loginForm) {
 
     localStorage.setItem("loggedInUser", JSON.stringify(user));
     alert("Login successful!");
-    window.location.href = "index.html";
+    window.location.href = "home.html"; // Chuyển sang trang chủ đã đăng nhập
   });
 }
 
-// Đăng xuất
+// ----------- ĐĂNG XUẤT -----------
 const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("loggedInUser");
-    alert("You're logout!");
-    window.location.href = "login.html";
+    alert("You're logged out!");
+    window.location.href = "index.html"; // Quay lại trang chủ đầu tiên chưa đăng nhập
   });
 }

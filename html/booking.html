@@ -18,6 +18,7 @@
                 <a href="rooms.html">ROOMS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
+                <img src="../image/user-avata.png" alt="User avata" class="avata">
             </div>
         </nav>
 
@@ -59,17 +60,28 @@
                 <label>
                     Check-out:
                     <input id="checkOut" type="date" required>
-                </label>
+                </label><br>
+
+                <label for="services">Additional Services:</label>
+                <div class="services">
+                    <label><input type="checkbox" value="swimming pool access" data-price="200000"> Swimming Pool Access (200,000 VND)</label>
+                    <label><input type="checkbox" value="local restaurant" data-price="250000"> Local Restaurant (250,000 VND)</label>
+                    <label><input type="checkbox" value="tour & travel service" data-price="400000"> Tour & Travel Service (400,000 VND)</label>
+                    <label><input type="checkbox" value="spa & massage" data-price="300000"> Spa & Massage (300,000 VND)</label>
+                </div>
+
+                <div class="sum">
+                    <p><strong>Total:</strong> <span id="serviceTotal">0</span> VND</p>
+                </div>
 
                 <button type="submit" class="btn">Confirm Booking</button>
                 <div id="msg" role="status"></div>
             </form>
-            <section>
-                <h2>Selected Services</h2>
-                <ul id="selectedServices"></ul>
-                <p><strong>Total:</strong> <span id="serviceTotal">0</span> VND</p>
-            </section>
 
+        <section>
+            <h2>Selected Services</h2>
+            <ul id="selectedServices"></ul>
+        </section>
         </main>
         <script src="../js/booking.js"></script>
     </body>
