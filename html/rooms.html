@@ -23,13 +23,26 @@
       </div>
 
       <div class="menu">
-        <a href="index.html">HOME</a>
+        <a href="home.html">HOME</a>
         <a href="rooms.html" class="active">ROOMS</a>
         <a href="services.html">SERVICES</a>
         <a href="about.html">ABOUT</a>
         <img src="../image/user-avata.png" alt="User avata" class="avata">
       </div>
     </nav>
+
+    <!-- Modal User Info -->
+    <div class="modal-overlay" id="userModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>User information</h3>
+          <button class="modal-close" id="closeModal">&times;</button>
+        </div>
+        <div class="user-info" id="userInfo">
+          <!-- Thông tin sẽ được điền bằng JavaScript -->
+        </div>
+      </div>
+    </div>
 
     <!-- Search and Filter -->
     <div class="search-filter-container">
@@ -189,6 +202,8 @@
     <footer>
       &copy; 2025 NMT Hotel. All rights reserved.
     </footer>
+
+    <script src="../js/auth.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {

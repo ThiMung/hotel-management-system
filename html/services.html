@@ -4,6 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Services - NMT Hotel</title>
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
         <link rel="stylesheet" href="../css/services.css" />
     </head>
     <body>
@@ -17,7 +20,7 @@
             </div>
 
             <div class="menu">
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
                 <a href="rooms.html">ROOMS</a>
                 <a href="services.html" class="active">SERVICES</a>
                 <a href="about.html">ABOUT</a>
@@ -25,6 +28,19 @@
                     class="avata">
             </div>
         </nav>
+
+        <!-- Modal User Info -->
+        <div class="modal-overlay" id="userModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>User information</h3>
+                    <button class="modal-close" id="closeModal">&times;</button>
+                </div>
+                <div class="user-info" id="userInfo">
+                    <!-- Thông tin sẽ được điền bằng JavaScript -->
+                </div>
+            </div>
+        </div>
 
         <main class="container">
             <h1>Our Services</h1>
@@ -39,5 +55,6 @@
         </footer>
 
         <script src="../js/services.js"></script>
+        <script src="../js/auth.js"></script>
     </body>
 </html>
