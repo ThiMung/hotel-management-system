@@ -23,7 +23,6 @@ body {
 /* MENU */
 .menu {
   display: flex;
-  gap: 20px;
   align-items: center;
   gap: 60px; /* khoảng cách giữa các mục menu */
 }
@@ -37,7 +36,7 @@ body {
 }
 
 .menu a:hover {
-  color: #FF4C4C;
+  color: #ea3434;
 }
 
 .menu a.active {
@@ -45,9 +44,9 @@ body {
   border-bottom: 2px solid #FF4C4C;
 }
 
-/* BOOK BUTTON */
-.book-btn {
-  background-color: #FF4C4C;
+/* NAV BUTTONS */
+.nav-btn {
+  background-color: #f62424;
   color: white;
   border: none;
   padding: 8px 18px;
@@ -57,96 +56,189 @@ body {
   transition: background-color 0.3s;
 }
 
-.book-btn:hover {
-  background-color: #e43e3e;
+.nav-btn:hover {
+  background-color: #2b8d9e;
 }
 
+/* === BANNER === */
+.banner {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
 
-.features-section {
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+/* === IMAGE GRID (đẹp, cân đối) === */
+/* === IMAGE GRID (kiểu image-row đẹp, đều, dễ nhìn) === */
+.image-grid {
+  margin-top: 30px;
+  padding: 20px -20px;
+}
+
+.image-grid .row {
   display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin: 40px 0;
+  justify-content: space-between;  /* Chia đều 3 ảnh 1 hàng */
+  gap: 20px;                       /* Khoảng cách giữa ảnh */
+  flex-wrap: wrap;                 /* Tự xuống dòng nếu hẹp */
 }
 
-.feature {
+.image-grid .col-md-4 {
+  flex: 1;                         /* Mỗi cột chiếm đều nhau */
+}
+
+.image-grid .panel-body {
+  padding: 0;
+  margin: -10px;
+}
+
+.image-grid .panel-body img {
+  width: 100%;                     /* Ảnh chiếm hết khung */
+  height: 250px;                   /* Chiều cao cố định */
+  object-fit: cover;               /* Cắt ảnh cho đẹp */
+  border-radius: 8px;              /* Bo góc nhẹ */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid .panel-body img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive: màn hình nhỏ hơn 768px -> 1 ảnh 1 hàng */
+@media (max-width: 768px) {
+  .image-grid .row {
+    flex-direction: column;
+  }
+  .image-grid .col-md-4 {
+    width: 100%;
+  }
+}
+
+/* HÀNG TRÊN: ảnh + text */
+.feature-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-top: 40px;
   gap: 30px;
+  padding: 20px;
 }
 
-.feature--img-left .feature-image {
-  order: 1;
-}
-
-.feature--img-left .feature-text {
-  order: 2;
-}
-
-.feature--img-right .feature-image {
-  order: 2;
-}
-
-.feature--img-right .feature-text {
-  order: 1;
-}
-
-.feature-image img {
-  width: 420px;
+.feature-top img {
+  width: 50%;
+  height: 300px;
+  object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .feature-text {
-  flex: 1;
+  background-color: #e6e6e6;
+  padding: 25px 30px;
+  border-radius: 8px;
+  width: 50%;
 }
 
 .feature-text h3 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 0;
+  font-weight: 700;
 }
 
 .feature-text p {
-  color: #555;
   line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 15px;
+  color: #333;
 }
 
-.feature-gallery {
+/* HÀNG DƯỚI: 3 ảnh nhỏ */
+/* === IMAGE GRID === */
+.image-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  justify-content: space-between;  /* Chia đều vị trí các ảnh */
+  gap: 20px;                       /* Khoảng cách giữa ảnh */
+  padding: 20px;
+  margin-top: 0;
 }
 
-.feature-gallery img {
-  width: 150px;
-  border-radius: 6px;
+.image-row > div {
+  flex: 1;                         /* Chia đều 3 cột */
+}
+
+.image-row img {
+  width: 100%;                     /* Ảnh chiếm hết khung */
+  height: 250px;                   /* Chiều cao cố định */
+  object-fit: cover;              /* Cắt ảnh đẹp */
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
 
-.feature-gallery img:hover {
-  transform: scale(1.05);
+.image-row img:hover {
+  transform: scale(1.03);
 }
 
+/* NÚT BOOK */
 .book-btn {
-  background-color: #e8e8e8;
+  display: block;
+  width: 140px;
+  margin: 5px auto -20px;
+  padding: 10px 0;
+  position: relative;
+  left: 500px;
+  background-color: #2b9471;
+  color: black;
+  font-weight: 700;
+  text-align: center;
   border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
-.book-btn:hover {
-  background-color: #ccc;
-}
 
-.container image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+    .book-btn:hover {
+      background-color: #d64b4b;
+      color: white;
+    }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar-custom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  .banner-text {
+    font-size: 20px;
+  }
+}
+/* FOOTER */
+footer {
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
 }
