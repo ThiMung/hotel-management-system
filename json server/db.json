@@ -348,7 +348,8 @@
             "roomId": 3,
             "checkIn": "2025-10-05",
             "checkOut": "2025-10-07",
-            "status": "completed"
+            "status": "completed",
+            "selectedServices": [1, 4]
         },
         {
             "id": 2,
@@ -356,7 +357,8 @@
             "roomId": 15,
             "checkIn": "2025-10-08",
             "checkOut": "2025-10-10",
-            "status": "confirmed"
+            "status": "confirmed",
+            "selectedServices": [2]
         },
         {
             "id": 3,
@@ -364,7 +366,38 @@
             "roomId": 33,
             "checkIn": "2025-10-10",
             "checkOut": "2025-10-12",
-            "status": "pending"
+            "status": "pending",
+            "selectedServices": []
+        }
+    ],
+    "services": [
+        {
+            "id": 1,
+            "name": "Swimming Pool Access",
+            "description": "Relax in our outdoor pool with scenic views.",
+            "price": 200000,
+            "image": "https://flchotelsresorts.com/images/service/2022/03/original/dsc_9128_1648032066_1648614272.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Local Restaurant",
+            "description": "Enjoy delicious local cuisine and specialties.",
+            "price": 250000,
+            "image": "https://ezcloud.vn/wp-content/uploads/2019/08/ban-thuc-an.webp"
+        },
+        {
+            "id": 3,
+            "name": "Tour & Travel Service",
+            "description": "Explore nearby attractions with guided tours.",
+            "price": 400000,
+            "image": "https://tauvinhhalong.com/wp-content/uploads/2025/03/combo-ha-long-2n1d-bua-toi-du-thuyen-1.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Spa & Massage",
+            "description": "Unwind with relaxing treatments and massages.",
+            "price": 300000,
+            "image": "https://hotel.oxu.vn/wp-content/uploads/2019/03/kinh-doanh-spa-trong-khach-san.jpg"
         }
     ]
 }

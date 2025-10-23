@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #713C48;
+  margin: 0;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar-custom {
+  display: flex;
+  justify-content: space-between; /* chia 2 phần: logo - menu */
+  align-items: center;
+  background-color: white;
+  padding: 15px 60px;
+}
+
+.logo img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* khoảng cách giữa các mục menu */
+}
+
+.menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #FF4C4C;
+}
+
+.menu a.active {
+  color: #FF4C4C;
+  border-bottom: 2px solid #FF4C4C;
+}
+
+.container {
+  padding: 30px;
+  text-align: center;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* tự động co giãn cột tùy theo kich thước mh */
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease; /* khi di chuột thì nó sẽ phóng to từ từ trong 0.2s */
+}
+
+.service-card:hover {
+  transform: scale(1.03); /* khi di chuột vào thì nó sẽ phóng to lên 1.03 lần */
+}
+
+.service-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover; /* ảnh sẽ tự động cắt bớt cho phù hợp với khung, k bị méo ảnh */
+  border-radius: 10px;
+}
+
+.service-card h3 {
+  color: #ff7a00;
+  margin-top: 10px;
+}
+
+.service-card button {
+  background: #ff7a00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer; /* chuyển sang hình bàn tay khi hover vào */
+}
+
+.service-card button:hover {
+  background: #e36b00;
+}
+
+/* FOOTER */
+footer {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
