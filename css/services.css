@@ -86,9 +86,23 @@ body {
   border-radius: 10px;
 }
 
-.service-card h3 {
+.service-card h4 {
   color: #ff7a00;
   margin-top: 10px;
+}
+
+.service-card .description {
+  color: #000;
+  font-size: 14px;
+  margin: 8px 0;
+  min-height: 40px;
+}
+
+.service-card .price {
+  color: #e36b00;
+  font-weight: bold;
+  margin: 8px 0;
+  font-size: 16px;
 }
 
 .service-card button {

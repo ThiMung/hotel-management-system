@@ -12,17 +12,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       .map(
         (svc) => `
       <div class="service-card">
-        <img src="${svc.image}" alt="${
-          svc.name
-        }" onerror="this.src='https://via.placeholder.com/150'">
-        <h3>${svc.name}</h3>
-        <p>${svc.description || ""}</p>
-        <p><strong>Price:</strong> ${svc.price.toLocaleString()} VND</p>
-        <button onclick="addService('${svc.name}', ${
-          svc.price
-        })">Add Service</button>
+        <img src="${svc.image || 'https://via.placeholder.com/150'}" alt="${svc.name}">
+        <h4>${svc.name}</h4>
+        ${svc.description ? `<p class="description">${svc.description}</p>` : ''}
+        ${svc.price ? `<p class="price"><strong>Price:</strong> ${Number(svc.price).toLocaleString()} VND</p>` : '<p class="price"><strong>Price:</strong> Not specified</p>'}
+        <button onclick="addService('${svc.name.replace(/'/g, "\\'")}', ${svc.price || 0})">Add Service</button>
       </div>
-    `
+      `
       )
       .join("");
   } catch (error) {
