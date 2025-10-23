@@ -1,167 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NMT Hotel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NMT Hotel</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet" href="../css/index.css">
+    </head>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar-custom">
-        <div class="logo">
-            <a href="index.html">
-                <img src="../image/NMT.jpg" alt="NMT Hotel Logo" class="logo-image">
-            </a>
-        </div>
-
-        <div class="menu">
-            <a href="index.html" class="active">HOME</a>
-            <a href="rooms.html">ROOMS</a>
-            <a href="services.html">SERVICES</a>
-            <a href="about.html">ABOUT</a>
-            <img src="../image/user-avata.png" alt="User avata" class="avata">
-            <button id="logoutBtn" class="book-btn">LOG OUT</button>
-
-        </div>
-    </nav>
-
-    <!-- Banner -->
-    <div class="banner">
-        <img src="../image/h1.jpg">
-        <div class="banner-text">Where simplicity sleeps in style</div>
-    </div>
-
-
-    <div class="container">
-        <!-- Content Section -->
-        <div class="content-section">
-            <div>
-                <h5>NMT Hotel History</h5>
-                <p>
-                    Built in 1898, the red-brick building that now houses NMT Hotel began its life as a riverside
-                    warehouse
-                    along the East River, where sailors unloaded crates of coffee, spices, and textiles from ships bound
-                    for
-                    the growing city. Back then, the district was a maze of cobblestone streets and iron bridges, alive
-                    with
-                    the rhythm of trade and the clatter of wooden carts echoing through narrow lanes.
-                    For decades, the building stood as a witness to change — from steamships to skyscrapers, from
-                    handwritten ledgers to electric lights. But as the harbor grew quieter and industries moved away,
-                    its
-                    heavy doors closed for good. Dust gathered on the beams, ivy crept up the walls, and the city’s
-                    noise
-                    faded into a distant hum. The warehouse became a ghost of its own time, waiting for a new story.
-                    In 2011, a young architect stumbled upon the forgotten structure during a morning walk. Captivated
-                    by
-                    the texture of its bricks and the quiet dignity of decay, she decided to bring it back to life — not
-                    as
-                    another polished tower, but as a place where the city could remember how to breathe. Over two years
-                    of
-                    careful restoration, every window was mended by hand, every steel beam polished but not hidden. The
-                    goal
-                    was not perfection, but preservation.
-                </p>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar-custom">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../image/NMT.jpg" alt="NMT Hotel Logo"
+                        class="logo-image">
+                </a>
             </div>
-            <div>
-                <img src="../image/h2.jpg" alt="Hotel building" class="img-fluid rounded">
+
+            <div class="menu">
+                <a href="index.html" class="active">HOME</a>
+                <a href="rooms.html">ROOMS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="about.html">ABOUT</a>
+                <img src="../image/user-avata.png" alt="User avata"
+                    class="avata" id="userAvatar">
+                <button id="logoutBtn" class="book-btn">LOG OUT</button>
+
+            </div>
+        </nav>
+
+        <!-- Modal User Info -->
+        <div class="modal-overlay" id="userModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>User information</h3>
+                    <button class="modal-close" id="closeModal">&times;</button>
+                </div>
+                <div class="user-info" id="userInfo">
+                    <!-- Thông tin sẽ được điền bằng JavaScript -->
+                </div>
             </div>
         </div>
 
-        <!-- Image Grid -->
-        <div class="container image-grid">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="panel-body"><img src="../image/h3.jpg" alt=""></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="panel-body"><img src="../image/h4.jpg" alt=""></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="panel-body"><img src="../image/h5.jpg" alt=""></div>
-                </div>
-            </div>
+        <!-- Banner -->
+        <div class="banner">
+            <img src="../image/h1.jpg">
+            <div class="banner-text">Where simplicity sleeps in style</div>
         </div>
 
         <div class="container">
-            <!-- Features Section -->
-            <div class="features-section">
+            <!-- Content Section -->
+            <div class="content-section">
+                <div>
+                    <h5>NMT Hotel History</h5>
+                    <p>
+                        Built in 1898, the red-brick building that now houses
+                        NMT Hotel began its life as a riverside
+                        warehouse
+                        along the East River, where sailors unloaded crates of
+                        coffee, spices, and textiles from ships bound
+                        for
+                        the growing city. Back then, the district was a maze of
+                        cobblestone streets and iron bridges, alive
+                        with
+                        the rhythm of trade and the clatter of wooden carts
+                        echoing through narrow lanes.
+                        For decades, the building stood as a witness to change —
+                        from steamships to skyscrapers, from
+                        handwritten ledgers to electric lights. But as the
+                        harbor grew quieter and industries moved away,
+                        its
+                        heavy doors closed for good. Dust gathered on the beams,
+                        ivy crept up the walls, and the city’s
+                        noise
+                        faded into a distant hum. The warehouse became a ghost
+                        of its own time, waiting for a new story.
+                        In 2011, a young architect stumbled upon the forgotten
+                        structure during a morning walk. Captivated
+                        by
+                        the texture of its bricks and the quiet dignity of
+                        decay, she decided to bring it back to life — not
+                        as
+                        another polished tower, but as a place where the city
+                        could remember how to breathe. Over two years
+                        of
+                        careful restoration, every window was mended by hand,
+                        every steel beam polished but not hidden. The
+                        goal
+                        was not perfection, but preservation.
+                    </p>
+                </div>
+                <div>
+                    <img src="../image/h2.jpg" alt="Hotel building"
+                        class="img-fluid rounded">
+                </div>
+            </div>
 
-                <!-- 1 -->
-                <div class="feature feature--img-left">
-                    <div class="feature-image">
-                        <img src="../image/h6.jpg" alt="Prime Location">
+            <!-- Image Grid -->
+            <div class="container image-grid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel-body"><img src="../image/h3.jpg"
+                                alt></div>
                     </div>
-                    <div class="feature-text">
-                        <h5>Prime Location</h5>
-                        <p>
-                            Located in the city center, close to restaurants, shops, and cultural attractions,
-                            NMT Hotel makes it easy to explore local nightlife and transportation from here.
-                            Whether you’re traveling for business or leisure, everything is just a short walk away.
-                            Enjoy the vibrant atmosphere of the city right at your doorstep, and experience the perfect
-                            blend of comfort, convenience, and modern style during your stay.
-                        </p>
+                    <div class="col-md-4">
+                        <div class="panel-body"><img src="../image/h4.jpg"
+                                alt></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel-body"><img src="../image/h5.jpg"
+                                alt></div>
                     </div>
                 </div>
+            </div>
 
-                <!-- 2 -->
-                <div class="feature feature--img-right">
-                    <div class="feature-image">
-                        <img src="../image/h7.jpg" alt="Affordable Price">
-                    </div>
-                    <div class="feature-text">
-                        <h5>Affordable Price</h5>
-                        <p>
-                            We offer high-quality services and comfortable rooms at an affordable rate. Our goal is to
-                            make every guest feel relaxed without spending too much. You can enjoy the same great
-                            experience as big hotels, but for less. Whether you’re staying for a short trip or an
-                            extended vacation, our friendly staff and cozy atmosphere will make you feel right at home.
-                        </p>
-                    </div>
-                </div>
+            <div class="container">
+                <!-- Features Section -->
+                <div class="features-section">
 
-                <!-- 3 -->
-                <div class="feature feature--img-left">
-                    <div class="feature-image">
-                        <img src="../image/h8.jpg" alt="Modern Facilities">
+                    <!-- 1 -->
+                    <div class="feature feature--img-left">
+                        <div class="feature-image">
+                            <img src="../image/h6.jpg" alt="Prime Location">
+                        </div>
+                        <div class="feature-text">
+                            <h5>Prime Location</h5>
+                            <p>
+                                Located in the city center, close to
+                                restaurants, shops, and cultural attractions,
+                                NMT Hotel makes it easy to explore local
+                                nightlife and transportation from here.
+                                Whether you’re traveling for business or
+                                leisure, everything is just a short walk away.
+                                Enjoy the vibrant atmosphere of the city right
+                                at your doorstep, and experience the perfect
+                                blend of comfort, convenience, and modern style
+                                during your stay.
+                            </p>
+                        </div>
                     </div>
-                    <div class="feature-text">
-                        <h5>Modern Facilities</h5>
-                        <p>
-                            All our rooms are fully equipped with Wi-Fi, air conditioning, flat-screen TV, and hot
-                            showers. We also provide 24-hour front desk service, daily cleaning, and comfortable beds —
-                            everything designed to make your stay relaxing and worry-free.
-                            In addition, guests can enjoy complimentary toiletries, fresh linens, and a welcoming
-                            ambiance that ensures both comfort and convenience throughout your visit.
-                        </p>
-                    </div>
-                </div>
 
-                <!-- 4 -->
-                <div class="feature feature--img-right">
-                    <div class="feature-image">
-                        <img src="../image/h9.jpg" alt="Friendly Staff">
+                    <!-- 2 -->
+                    <div class="feature feature--img-right">
+                        <div class="feature-image">
+                            <img src="../image/h7.jpg" alt="Affordable Price">
+                        </div>
+                        <div class="feature-text">
+                            <h5>Affordable Price</h5>
+                            <p>
+                                We offer high-quality services and comfortable
+                                rooms at an affordable rate. Our goal is to
+                                make every guest feel relaxed without spending
+                                too much. You can enjoy the same great
+                                experience as big hotels, but for less. Whether
+                                you’re staying for a short trip or an
+                                extended vacation, our friendly staff and cozy
+                                atmosphere will make you feel right at home.
+                            </p>
+                        </div>
                     </div>
-                    <div class="feature-text">
-                        <h5>Friendly Staff</h5>
-                        <p>
-                            Our staff are always ready to welcome you with warm smiles and genuine hospitality. They are
-                            well-trained to provide quick and professional assistance whenever you need it. From
-                            check-in to check-out, we make sure every detail of your stay is taken care of so you can
-                            truly relax and enjoy your time with us. Your comfort and happiness are always our top
-                            priorities.
-                        </p>
+
+                    <!-- 3 -->
+                    <div class="feature feature--img-left">
+                        <div class="feature-image">
+                            <img src="../image/h8.jpg" alt="Modern Facilities">
+                        </div>
+                        <div class="feature-text">
+                            <h5>Modern Facilities</h5>
+                            <p>
+                                All our rooms are fully equipped with Wi-Fi, air
+                                conditioning, flat-screen TV, and hot
+                                showers. We also provide 24-hour front desk
+                                service, daily cleaning, and comfortable beds —
+                                everything designed to make your stay relaxing
+                                and worry-free.
+                                In addition, guests can enjoy complimentary
+                                toiletries, fresh linens, and a welcoming
+                                ambiance that ensures both comfort and
+                                convenience throughout your visit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="feature feature--img-right">
+                        <div class="feature-image">
+                            <img src="../image/h9.jpg" alt="Friendly Staff">
+                        </div>
+                        <div class="feature-text">
+                            <h5>Friendly Staff</h5>
+                            <p>
+                                Our staff are always ready to welcome you with
+                                warm smiles and genuine hospitality. They are
+                                well-trained to provide quick and professional
+                                assistance whenever you need it. From
+                                check-in to check-out, we make sure every detail
+                                of your stay is taken care of so you can
+                                truly relax and enjoy your time with us. Your
+                                comfort and happiness are always our top
+                                priorities.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer -->
-    <footer> &copy; 2025 NMT Hotel. All rights reserved. </footer>
+        <!-- Footer -->
+        <footer> &copy; 2025 NMT Hotel. All rights reserved. </footer>
 
-    <script src="../js/auth.js"></script>
-</body>
+        <script src="../js/auth.js"></script>
+    </body>
 </html>
