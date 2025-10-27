@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Success</title>
+  <link rel="stylesheet" href="../css/booking.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar-custom">
+    <div class="logo">
+        <a href="index.html">
+            <img src="../image/NMT.jpg" alt="NMT Hotel Logo" class="logo-image" />
+        </a>
+    </div>
+    <div class="menu">
+      <a href="index.html">HOME</a>
+      <a href="rooms.html">ROOMS</a>
+      <a href="services.html">SERVICES</a>
+      <a href="about.html">ABOUT</a>
+      <img src="../image/user-avata.png" alt="User avata" class="avata" />
+    </div>
+  </nav>
+
+  <!-- Nội dung -->
+  <main class="container">
+    <h1>Booking Success! 🎉</h1>
+    <div class="success-message">
+      <p>Thank you for your booking! Here are your booking details:</p>
+    </div>
+    <div id="bookingInfo" class="booking-details"></div>
+    <a href="rooms.html" class="btn" style="text-decoration:none; display:inline-block; margin-top:15px;">Back to Rooms</a>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const box = document.getElementById("bookingInfo");
+      
+      // Lấy dữ liệu từ localStorage
+      const bookingData = localStorage.getItem("lastBooking");
+      
+      if (!bookingData) {
+        box.innerHTML = `
+          <div class="error">
+            <p>No booking information found.</p>
+            <p>Please complete the booking form first.</p>
+            <a href="booking.html" class="btn">Go to Booking</a>
+          </div>
+        `;
+        return;
+      }
+
+      try {
+        const info = JSON.parse(bookingData);
+        
+        // Format room type
+        const roomTypeMap = {
+          single: "Single Room",
+          double: "Double Room", 
+          family: "Family Room",
+          vip: "VIP Suite"
+        };
+
+        const roomTypeDisplay = roomTypeMap[info.roomType] || info.roomType;
+
+        // Xử lý services
+        let serviceList = "<li>No additional services</li>";
+        if (info.services && info.services.length > 0) {
+          serviceList = info.services.map((s) => {
+            const price = typeof s.price === 'number' ? s.price : parseInt(s.price) || 0;
+            return `<li>${s.name} - ${price.toLocaleString()} VND</li>`;
+          }).join("");
+        }
+
+        // Hiển thị thông tin
+        const totalAmount = typeof info.total === 'number' ? info.total : parseInt(info.total) || 0;
+        
+        box.innerHTML = `
+          <div class="detail-section">
+            <h3>Customer Information</h3>
+            <p><strong>Name:</strong> ${info.name || 'Not provided'}</p>
+            <p><strong>Phone:</strong> ${info.phone || 'Not provided'}</p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Room Information</h3>
+            <p><strong>Room Type:</strong> ${roomTypeDisplay}</p>
+            <p><strong>Quantity:</strong> ${info.quantity || 1} room(s)</p>
+            <p><strong>Check-in:</strong> ${info.checkIn || 'Not set'}</p>
+            <p><strong>Check-out:</strong> ${info.checkOut || 'Not set'}</p>
+          </div>
+
+          <div class="detail-section">
+            <h3>Services</h3>
+            <ul>${serviceList}</ul>
+          </div>
+
+          <div class="total-section">
+            <h3>Total Amount</h3>
+            <p class="total-amount">${totalAmount.toLocaleString()} VND</p>
+          </div>
+        `;
+
+        // KHÔNG xóa dữ liệu ngay - để người dùng xem được
+        // localStorage.removeItem("lastBooking");
+        // localStorage.removeItem("selectedServices");
+
+      } catch (error) {
+        console.error("Error:", error);
+        box.innerHTML = `
+          <div class="error">
+            <p>Error loading booking information.</p>
+            <p>Please contact support if this continues.</p>
+          </div>
+        `;
+      }
+
+    });
+  </script>
+
+  <style>
+    .success-message {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      border: 1px solid #c3e6cb;
+    }
+
+    .booking-details {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+
+    .detail-section {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .detail-section h3 {
+      color: #2c5aa0;
+      margin-bottom: 10px;
+    }
+
+    .detail-section p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .total-section {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .total-amount {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c5aa0;
+      margin: 10px 0;
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #f5c6cb;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+  </style>
+</body>
+</html>

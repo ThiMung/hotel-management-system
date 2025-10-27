@@ -1,119 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin - NMT Hotel</title>
-        <link rel="stylesheet" href="../css/admin.css">
-    </head>
-    <body>
-        <!-- Navbar -->
-        <nav class="navbar-custom">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="../image/NMT.jpg" alt="NMT Hotel Logo"
-                        class="logo-image">
-                </a>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - NMT Hotel</title>
+    <link rel="stylesheet" href="../css/admin.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar-custom">
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../image/NMT.jpg" alt="NMT Hotel Logo" class="logo-image" />
+        </a>
+      </div>
 
-            <div class="menu">
-                <a href="#roomsSection">ROOMS</a>
-                <a href="#servicesSection">SERVICES</a>
-                <a href="#customersSection">CUSTOMERS</a>
-                <a href="#bookingsSection">BOOKING</a>
-                <img src="../image/user-avata.png" alt="User avata"
-                    class="avata">
-                <button id="logoutBtn" class="book-btn">LOG OUT</button>
+      <div class="menu">
+        <a href="#roomsSection">ROOMS</a>
+        <a href="#servicesSection">SERVICES</a>
+        <a href="#customersSection">CUSTOMERS</a>
+        <a href="#bookingsSection">BOOKING</a>
+        <img src="../image/user-avata.png" alt="User avatar" class="avata" id="adminAvatar" />
+        <button id="logoutBtn" class="book-btn">LOG OUT</button>
+      </div>
+    </nav>
 
-            </div>
-        </nav>
+    <main class="container">
+      <h1>Admin Dashboard</h1>
 
-        <main class="container">
-            <h1>Admin Dashboard</h1>
+      <section id="roomsSection">
+        <h2>Manage Rooms</h2>
+        <button id="addRoomBtn">Add New Room</button>
+        <table id="roomsTable">
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Type</th><th>Price</th><th>Status</th><th>Image</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
-            <section id="roomsSection">
-                <h2>Manage Rooms</h2>
-                <button id="addRoomBtn">Add New Room</button>
-                <table id="roomsTable">
-                    <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Price</th><th>Status</th><th>Image</th><th>Actions</th></tr></thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+      <section id="servicesSection">
+        <h2>Manage Services</h2>
+        <button id="addServiceBtn">Add New Service</button>
+        <table id="servicesTable">
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Description</th><th>Price</th><th>Image</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
-            <section id="servicesSection">
-                <h2>Manage Services</h2>
-                <button id="addServiceBtn">Add New Service</button>
-                <table id="servicesTable">
-                    <thead><tr><th>ID</th><th>Name</th><th>Description</th><th>Price</th><th>Image</th><th>Actions</th></tr></thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+      <section id="customersSection">
+        <h2>View Customers</h2>
+        <table id="customersTable">
+          <thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
 
-            <section id="customersSection">
-                <h2>View Customers</h2>
-                <table id="customersTable">
-                    <thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th></tr></thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+      <section id="bookingsSection">
+        <h2>View Bookings</h2>
+        <table id="bookingsTable">
+          <thead><tr><th>ID</th><th>Customer ID</th><th>Room ID</th><th>Check In</th><th>Check Out</th><th>Status</th><th>Selected Services</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
 
-            <section id="bookingsSection">
-                <h2>View Bookings</h2>
-                <table id="bookingsTable">
-                    <thead><tr><th>ID</th><th>Customer ID</th><th>Room
-                                ID</th><th>Check In</th><th>Check
-                                Out</th><th>Status</th><th>Selected
-                                Services</th></tr></thead>
-                    <tbody></tbody>
-                </table>
-            </section>
+    <!-- Modal xem thông tin admin -->
+    <div id="adminModal" class="modal">
+      <div class="modal-content">
+        <span id="closeAdminModal" class="close">&times;</span>
+        <h3>Admin Information</h3>
+        <div id="adminInfo"></div>
+      </div>
+    </div>
 
-            <!-- Modal cho Rooms -->
-            <div id="roomModal" class="modal">
-                <div class="modal-content">
-                    <span id="closeRoomModal" class="close">&times;</span>
-                    <h3>Manage Room</h3>
-                    <form id="roomForm">
-                        <input type="hidden" id="roomId">
-                        <input id="roomName" placeholder="Name" required>
-                        <input id="roomType"
-                            placeholder="Type (Single/Double/Family/VIP)"
-                            required>
-                        <input id="roomPrice" type="number" placeholder="Price"
-                            required>
-                        <select id="roomStatus">
-                            <option value="available">Available</option>
-                            <option value="booked">Booked</option>
-                        </select>
-                        <input id="roomImage" placeholder="Image URL" required>
-                        <button type="submit">Save Room</button>
-                        <button type="button"
-                            id="cancelRoomModalBtn">Cancel</button>
-                    </form>
-                </div>
-            </div>
+    <!-- Modal thêm / sửa Room -->
+    <div id="roomModal" class="modal">
+      <div class="modal-content">
+        <span id="closeRoomModal" class="close">&times;</span>
+        <h2 id="roomModalTitle">Add Room</h2>
+        <form id="roomForm">
+          <input name="name" placeholder="Room name" required /><br />
+          <input name="type" placeholder="Type" required /><br />
+          <input name="price" placeholder="Price" type="number" required /><br />
+          <input name="status" placeholder="Status" required /><br />
+          <input name="image" placeholder="Image URL" /><br />
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
 
-            <!-- Modal cho Services -->
-            <div id="serviceModal" class="modal">
-                <div class="modal-content">
-                    <span id="closeServiceModal" class="close">&times;</span>
-                    <h3>Manage Service</h3>
-                    <form id="serviceForm">
-                        <input type="hidden" id="serviceId">
-                        <input id="serviceName" placeholder="Name" required>
-                        <input id="serviceDescription" placeholder="Description"
-                            required>
-                        <input id="servicePrice" type="number"
-                            placeholder="Price" required>
-                        <input id="serviceImage" placeholder="Image URL"
-                            required>
-                        <button type="submit">Save Service</button>
-                        <button type="button"
-                            id="cancelServiceModalBtn">Cancel</button>
-                    </form>
-                </div>
-            </div>
-        </main>
-        <script src="../js/admin.js"></script>
-    </body>
+    <!-- Modal thêm / sửa Service -->
+    <div id="serviceModal" class="modal">
+      <div class="modal-content">
+        <span id="closeServiceModal" class="close">&times;</span>
+        <h2 id="serviceModalTitle">Add Service</h2>
+        <form id="serviceForm">
+          <input name="name" placeholder="Service name" required /><br />
+          <input name="description" placeholder="Description" required /><br />
+          <input name="price" placeholder="Price" type="number" required /><br />
+          <input name="image" placeholder="Image URL" /><br />
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+  </body>
 </html>

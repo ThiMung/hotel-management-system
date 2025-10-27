@@ -23,7 +23,8 @@ body {
   font-size: 24px;
 }
 
-.auth-container input {
+.auth-container input,
+.auth-container select {
   display: block;
   width: 100%;
   margin: 12px 0;

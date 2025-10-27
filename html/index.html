@@ -26,11 +26,31 @@
                 <a href="rooms.html">ROOMS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
-                <a href="login.html" class="book-btn">SIGN IN</a>
-                <a href="register.html" class="book-btn">REGISTER</a>
 
+                <!-- Chưa đăng nhập -->
+                 <div id="guestMenu">
+                     <a href="login.html" class="book-btn">SIGN IN</a>
+                     <a href="register.html" class="book-btn">REGISTER</a>
+                 </div>
+
+                <!-- Đã đăng nhập -->
+                <div id="userMenu" class="hidden">
+                    <img src="../image/user-avata.png" alt="User" class="avatar" id="userAvatar">
+                    <button id="logoutBtn" class="book-btn">LOG OUT</button>
+                </div>
             </div>
         </nav>
+
+        <!-- Modal xem thông tin user -->
+        <div class="modal-overlay" id="userModal">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h3>User Information</h3>
+                <button id="closeModal">&times;</button>
+            </div>
+            <div id="userInfo"></div>
+            </div>
+        </div>
 
         <!-- Banner -->
         <div class="banner">
@@ -38,10 +58,9 @@
             <div class="banner-text">Where simplicity sleeps in style</div>
         </div>
 
-        <div class="container">
-            <!-- Content Section -->
-            <div class="content-section">
-                <div>
+            <!-- Intro -->
+            <section class="intro-section">
+                <div class="intro-content">
                     <h5>NMT Hotel History</h5>
                     <p>
                         Built in 1898, the red-brick building that now houses
@@ -80,11 +99,11 @@
                         was not perfection, but preservation.
                     </p>
                 </div>
-                <div>
+                <div class="intro-image">
                     <img src="../image/h2.jpg" alt="Hotel building"
                         class="img-fluid rounded">
                 </div>
-            </div>
+            </section>
 
             <!-- Image Grid -->
             <div class="container image-grid">
@@ -197,5 +216,7 @@
         </div>
         <!-- Footer -->
         <footer> &copy; 2025 NMT Hotel. All rights reserved. </footer>
+
+        <script src="../js/index.js"></script>
     </body>
 </html>

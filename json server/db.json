@@ -321,36 +321,46 @@
       "image": "https://ik.imagekit.io/tvlk/blog/2025/03/cac-loai-phong-khach-san-5-sao-06.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
     }
   ],
-  "customers": [
+  "users": [
     {
       "id": 1,
       "name": "Nguyen Van A",
+      "email": "vana@example.com",
       "phone": "0912345678",
-      "email": "vana@example.com"
+      "password": "123456",
+      "role": "user"
     },
     {
       "id": 2,
       "name": "Tran Thi B",
+      "email": "thib@example.com",
       "phone": "0987654321",
-      "email": "thib@example.com"
+      "password": "123456",
+      "role": "user"
     },
     {
       "id": 3,
       "name": "Le Van C",
+      "email": "vanc@example.com",
       "phone": "0905123456",
-      "email": "vanc@example.com"
+      "password": "123456",
+      "role": "user"
     },
     {
+      "id": 4,
       "name": "Dinh Thi Mung",
       "email": "dtmung0712@gmail.com",
       "phone": "0336320542",
-      "id": 4
+      "password": "123456",
+      "role": "user"
     },
     {
-      "name": "jkjkkjk",
-      "email": "knganhoanglea@gmail.com",
-      "phone": "0912345678",
-      "id": 5
+      "id": 5,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "phone": "0909009009",
+      "password": "admin123",
+      "role": "admin"
     }
   ],
   "bookings": [
@@ -389,11 +399,11 @@
   ],
   "services": [
     {
-      "id": 1,
       "name": "Swimming Pool Access",
       "description": "Relax in our outdoor pool with scenic views.",
-      "price": 200000,
-      "image": "https://flchotelsresorts.com/images/service/2022/03/original/dsc_9128_1648032066_1648614272.jpg"
+      "price": "200000",
+      "image": "https://flchotelsresorts.com/images/service/2022/03/original/dsc_9128_1648032066_1648614272.jpg",
+      "id": 1
     },
     {
       "id": 2,

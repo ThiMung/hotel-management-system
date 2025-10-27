@@ -1,241 +1,271 @@
 const API_URL = "http://localhost:3000";
 
-// Hàm chung để load và render table
-async function loadTable(
-  endpoint,
-  tableId,
-  fields,
-  editHandler = null,
-  deleteHandler = null
-) {
+// 🟢 Kiểm tra quyền admin
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if (!user || user.role !== "admin") {
+  alert("You do not have permission to access this page!");
+  window.location.href = "/index.html";
+}
+
+// 🟢 Logout
+document.getElementById("logoutBtn")?.addEventListener("click", () => {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "../index.html"; // chuyển về index
+});
+
+// ----------------- HÀM MỞ / ĐÓNG MODAL -----------------
+function openModal(modal) {
+  modal.style.display = "flex"; // flex để căn giữa
+}
+
+function closeModal(modal) {
+  modal.style.display = "none";
+}
+
+// ----------------- ADMIN MODAL -----------------
+const adminAvatar = document.getElementById("adminAvatar");
+const adminModal = document.getElementById("adminModal");
+const closeAdminModal = document.getElementById("closeAdminModal");
+const adminInfo = document.getElementById("adminInfo");
+
+adminAvatar?.addEventListener("click", () => {
+  adminInfo.innerHTML = `
+    <p><strong>Name:</strong> ${user.name}</p>
+    <p><strong>Email:</strong> ${user.email}</p>
+    <p><strong>Phone:</strong> ${user.phone}</p>
+    <p><strong>Role:</strong> ${user.role}</p>
+  `;
+  openModal(adminModal);
+});
+
+closeAdminModal?.addEventListener("click", () => closeModal(adminModal));
+
+// ----------------- ROOM MODAL -----------------
+const roomModal = document.getElementById("roomModal");
+const roomForm = document.getElementById("roomForm");
+const closeRoomModal = document.getElementById("closeRoomModal");
+const roomModalTitle = document.getElementById("roomModalTitle");
+let editingRoomId = null;
+
+document.getElementById("addRoomBtn").addEventListener("click", () => {
+  editingRoomId = null;
+  roomForm.reset();
+  roomModalTitle.textContent = "Add New Room";
+  openModal(roomModal);
+});
+
+closeRoomModal.addEventListener("click", () => closeModal(roomModal));
+
+// ----------------- SERVICE MODAL -----------------
+const serviceModal = document.getElementById("serviceModal");
+const serviceForm = document.getElementById("serviceForm");
+const closeServiceModal = document.getElementById("closeServiceModal");
+const serviceModalTitle = document.getElementById("serviceModalTitle");
+let editingServiceId = null;
+
+document.getElementById("addServiceBtn").addEventListener("click", () => {
+  editingServiceId = null;
+  serviceForm.reset();
+  serviceModalTitle.textContent = "Add New Service";
+  openModal(serviceModal);
+});
+
+closeServiceModal.addEventListener("click", () => closeModal(serviceModal));
+
+// Click ngoài modal đóng modal
+window.addEventListener("click", (e) => {
+  if (e.target === adminModal) closeModal(adminModal);
+  if (e.target === roomModal) closeModal(roomModal);
+  if (e.target === serviceModal) closeModal(serviceModal);
+});
+
+// ----------------- LOAD DỮ LIỆU -----------------
+async function loadRooms() {
   try {
-    console.log(`Fetching ${endpoint}...`);
-    const response = await fetch(`${API_URL}/${endpoint}`);
-    if (!response.ok)
-      throw new Error(`Failed to fetch ${endpoint}: ${response.status}`);
-    const data = await response.json();
-    console.log(`${endpoint} data:`, data);
-    const tbody = document.querySelector(`#${tableId} tbody`);
-    if (!tbody) throw new Error(`Table ${tableId} not found`);
+    const res = await fetch(`${API_URL}/rooms`);
+    const data = await res.json();
+    const tbody = document.querySelector("#roomsTable tbody");
     tbody.innerHTML = "";
-    data.forEach((item) => {
+    data.forEach((room) => {
       const tr = document.createElement("tr");
-      fields.forEach((field) => {
-        const td = document.createElement("td");
-        if (field === "image") {
-          const img = document.createElement("img");
-          img.src = item[field] || "https://via.placeholder.com/50";
-          img.width = 50;
-          img.alt = "Image";
-          td.appendChild(img);
-        } else if (field === "selectedServices" && Array.isArray(item[field])) {
-          td.textContent = item[field].join(", ");
-        } else {
-          td.textContent = item[field] || "";
-        }
-        tr.appendChild(td);
-      });
-      if (editHandler && deleteHandler) {
-        const actionsTd = document.createElement("td");
-        const editBtn = document.createElement("button");
-        editBtn.textContent = "Edit";
-        editBtn.onclick = () => editHandler(item);
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "Delete";
-        deleteBtn.onclick = () => deleteHandler(item.id);
-        actionsTd.appendChild(editBtn);
-        actionsTd.appendChild(deleteBtn);
-        tr.appendChild(actionsTd);
-      }
+      tr.innerHTML = `
+        <td>${room.id}</td>
+        <td>${room.name}</td>
+        <td>${room.type}</td>
+        <td>${room.price}</td>
+        <td>${room.status}</td>
+        <td><img src="${room.image || "../image/no-image.png"}" alt="Room" width="80"></td>
+        <td>
+          <button class="edit-btn" onclick="editRoom(${room.id})">Edit</button>
+          <button class="delete-btn" onclick="deleteRoom(${room.id})">Delete</button>
+        </td>
+      `;
       tbody.appendChild(tr);
     });
   } catch (error) {
-    console.error(`Error loading ${endpoint}:`, error);
-    alert(`Failed to load ${endpoint}. Check console for details.`);
+    console.error("Error loading rooms:", error);
   }
 }
 
-// Hàm mở modal
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) modal.style.display = "block";
-}
 
-// Hàm đóng modal
-function closeModal(modalId) {
-  const modal = document.getElementById(modalId);
-  if (modal) modal.style.display = "none";
-}
-
-// Quản lý Rooms
-function loadRooms() {
-  loadTable(
-    "rooms",
-    "roomsTable",
-    ["id", "name", "type", "price", "status", "image"],
-    (room) => {
-      document.getElementById("roomId").value = room.id || "";
-      document.getElementById("roomName").value = room.name || "";
-      document.getElementById("roomType").value = room.type || "";
-      document.getElementById("roomPrice").value = room.price || "";
-      document.getElementById("roomStatus").value = room.status || "available";
-      document.getElementById("roomImage").value = room.image || "";
-      openModal("roomModal");
-    },
-    async (id) => {
-      if (confirm("Are you sure you want to delete this room?")) {
-        try {
-          await fetch(`${API_URL}/rooms/${id}`, { method: "DELETE" });
-          loadRooms();
-          alert(`Đã xóa phòng có ID ${id}`);
-        } catch (error) {
-          console.error("Error deleting room:", error);
-          alert("Failed to delete room. Check console for details.");
-        }
-      }
-    }
-  );
-}
-
-document.getElementById("roomForm")?.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const id = document.getElementById("roomId").value;
-  const data = {
-    name: document.getElementById("roomName").value,
-    type: document.getElementById("roomType").value,
-    price: parseInt(document.getElementById("roomPrice").value) || 0,
-    status: document.getElementById("roomStatus").value,
-    image: document.getElementById("roomImage").value,
-  };
-  if (!data.name || !data.type || !data.price || !data.image) {
-    alert("Please fill all required fields");
-    return;
-  }
+async function loadServices() {
   try {
-    const method = id ? "PATCH" : "POST";
-    const response = await fetch(`${API_URL}/rooms/${id || ""}`, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+    const res = await fetch(`${API_URL}/services`);
+    const data = await res.json();
+    const tbody = document.querySelector("#servicesTable tbody");
+    tbody.innerHTML = "";
+    data.forEach((service) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${service.id}</td>
+        <td>${service.name}</td>
+        <td>${service.description}</td>
+        <td>${service.price}</td>
+        <td><img src="${service.image || "../image/no-image.png"}" alt="Service" width="80"></td>
+        <td>
+          <button class="edit-btn" onclick="editService(${service.id})">Edit</button>
+          <button class="delete-btn" onclick="deleteService(${service.id})">Delete</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
     });
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    loadRooms();
-    closeModal("roomModal");
-    alert(`Đã ${id ? "cập nhật" : "thêm mới"} phòng thành công!`);
   } catch (error) {
-    console.error("Error saving room:", error);
-    alert("Failed to save room. Check console for details.");
+    console.error("Error loading services:", error);
   }
-});
-
-document.getElementById("addRoomBtn")?.addEventListener("click", () => {
-  document.getElementById("roomForm").reset();
-  document.getElementById("roomId").value = "";
-  openModal("roomModal");
-});
-
-document
-  .getElementById("cancelRoomModalBtn")
-  ?.addEventListener("click", () => closeModal("roomModal"));
-document
-  .getElementById("closeRoomModal")
-  ?.addEventListener("click", () => closeModal("roomModal"));
-
-// Quản lý Services
-function loadServices() {
-  loadTable(
-    "services",
-    "servicesTable",
-    ["id", "name", "description", "price", "image"],
-    (service) => {
-      document.getElementById("serviceId").value = service.id || "";
-      document.getElementById("serviceName").value = service.name || "";
-      document.getElementById("serviceDescription").value =
-        service.description || "";
-      document.getElementById("servicePrice").value = service.price || "";
-      document.getElementById("serviceImage").value = service.image || "";
-      openModal("serviceModal");
-    },
-    async (id) => {
-      if (confirm("Are you sure you want to delete this service?")) {
-        try {
-          await fetch(`${API_URL}/services/${id}`, { method: "DELETE" });
-          loadServices();
-          alert(`Đã xóa dịch vụ có ID ${id}`);
-        } catch (error) {
-          console.error("Error deleting service:", error);
-          alert("Failed to delete service. Check console for details.");
-        }
-      }
-    }
-  );
 }
 
-document
-  .getElementById("serviceForm")
-  ?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const id = document.getElementById("serviceId").value;
-    const data = {
-      name: document.getElementById("serviceName").value,
-      description: document.getElementById("serviceDescription").value,
-      price: parseInt(document.getElementById("servicePrice").value) || 0,
-      image: document.getElementById("serviceImage").value,
-    };
-    if (!data.name || !data.description || !data.price || !data.image) {
-      alert("Please fill all required fields");
-      return;
-    }
-    try {
-      const method = id ? "PATCH" : "POST";
-      const response = await fetch(`${API_URL}/services/${id || ""}`, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok)
-        throw new Error(`HTTP error! status: ${response.status}`);
-      loadServices();
-      closeModal("serviceModal");
-      alert(`Đã ${id ? "cập nhật" : "thêm mới"} dịch vụ thành công!`);
-    } catch (error) {
-      console.error("Error saving service:", error);
-      alert("Failed to save service. Check console for details.");
-    }
+async function loadCustomers() {
+  try {
+    const res = await fetch(`${API_URL}/users`);
+    const users = await res.json();
+    const customers = users.filter(u => u.role === "user");
+    const tbody = document.querySelector("#customersTable tbody");
+    tbody.innerHTML = "";
+    customers.forEach((c) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${c.id}</td><td>${c.name}</td><td>${c.phone}</td><td>${c.email}</td>`;
+      tbody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("Error loading customers:", error);
+  }
+}
+
+async function loadBookings() {
+  try {
+    const res = await fetch(`${API_URL}/bookings`);
+    const data = await res.json();
+    const tbody = document.querySelector("#bookingsTable tbody");
+    tbody.innerHTML = "";
+    data.forEach((b) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${b.id}</td>
+        <td>${b.customerId}</td>
+        <td>${b.roomId}</td>
+        <td>${b.checkIn}</td>
+        <td>${b.checkOut}</td>
+        <td>${b.status}</td>
+        <td>${b.selectedServices || "None"}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("Error loading bookings:", error);
+  }
+}
+
+// ----------------- CRUD ROOM -----------------
+function deleteRoom(id) {
+  if (confirm("Are you sure to delete this room?")) {
+    fetch(`${API_URL}/rooms/${id}`, { method: "DELETE" })
+      .then(() => loadRooms())
+      .catch(err => console.error("Delete error:", err));
+  }
+}
+
+function editRoom(id) {
+  fetch(`${API_URL}/rooms/${id}`)
+    .then(res => res.json())
+    .then(room => {
+      editingRoomId = id;
+      roomForm.name.value = room.name;
+      roomForm.type.value = room.type;
+      roomForm.price.value = room.price;
+      roomForm.status.value = room.status;
+      roomForm.image.value = room.image;
+      roomModalTitle.textContent = "Edit Room";
+      openModal(roomModal);
+    });
+}
+
+roomForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = {
+    name: roomForm.name.value,
+    type: roomForm.type.value,
+    price: roomForm.price.value,
+    status: roomForm.status.value,
+    image: roomForm.image.value
+  };
+  const method = editingRoomId ? "PUT" : "POST";
+  const url = editingRoomId ? `${API_URL}/rooms/${editingRoomId}` : `${API_URL}/rooms`;
+
+  await fetch(url, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
   });
 
-document.getElementById("addServiceBtn")?.addEventListener("click", () => {
-  document.getElementById("serviceForm").reset();
-  document.getElementById("serviceId").value = "";
-  openModal("serviceModal");
+  closeModal(roomModal);
+  loadRooms();
 });
 
-document
-  .getElementById("cancelServiceModalBtn")
-  ?.addEventListener("click", () => closeModal("serviceModal"));
-document
-  .getElementById("closeServiceModal")
-  ?.addEventListener("click", () => closeModal("serviceModal"));
-
-// Quản lý Customers (read-only)
-function loadCustomers() {
-  loadTable("customers", "customersTable", ["id", "name", "phone", "email"]);
+// ----------------- CRUD SERVICE -----------------
+function deleteService(id) {
+  if (confirm("Are you sure to delete this service?")) {
+    fetch(`${API_URL}/services/${id}`, { method: "DELETE" })
+      .then(() => loadServices())
+      .catch(err => console.error("Delete error:", err));
+  }
 }
 
-// Quản lý Bookings (read-only)
-function loadBookings() {
-  loadTable("bookings", "bookingsTable", [
-    "id",
-    "customerId",
-    "roomId",
-    "checkIn",
-    "checkOut",
-    "status",
-    "selectedServices",
-  ]);
+function editService(id) {
+  fetch(`${API_URL}/services/${id}`)
+    .then(res => res.json())
+    .then(service => {
+      editingServiceId = id;
+      serviceForm.name.value = service.name;
+      serviceForm.description.value = service.description;
+      serviceForm.price.value = service.price;
+      serviceForm.image.value = service.image;
+      serviceModalTitle.textContent = "Edit Service";
+      openModal(serviceModal);
+    });
 }
 
-// Load tất cả khi trang sẵn sàng
+serviceForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = {
+    name: serviceForm.name.value,
+    description: serviceForm.description.value,
+    price: serviceForm.price.value,
+    image: serviceForm.image.value
+  };
+  const method = editingServiceId ? "PUT" : "POST";
+  const url = editingServiceId ? `${API_URL}/services/${editingServiceId}` : `${API_URL}/services`;
+
+  await fetch(url, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData)
+  });
+
+  closeModal(serviceModal);
+  loadServices();
+});
+
+// ----------------- LOAD DATA KHI TRANG READY -----------------
 document.addEventListener("DOMContentLoaded", () => {
   loadRooms();
   loadServices();
