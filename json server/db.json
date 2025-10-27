@@ -361,6 +361,14 @@
       "phone": "0909009009",
       "password": "admin123",
       "role": "admin"
+    },
+    {
+      "name": "Đinh Thị Trâm",
+      "email": "tramdinh@gmail.com",
+      "phone": "0999999990",
+      "password": "1111",
+      "role": "user",
+      "id": 6
     }
   ],
   "bookings": [

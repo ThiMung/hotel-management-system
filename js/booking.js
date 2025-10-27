@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .map(
             (s, i) =>
               `<li>${s.name} - ${s.price.toLocaleString()} VND 
-               <button type="button" onclick="removeService(${i})">x</button></li>`
+              <button type="button" onclick="removeService(${i})">x</button></li>`
           )
           .join("")
       : "<li>No services selected.</li>";
@@ -119,7 +119,7 @@ form.addEventListener("submit", (e) => {
     total: total
   };
 
-  console.log("Saving booking data:", bookingData);
+  console.log("Saving booking data:", bookingInfo);
   
   // LƯU VÀ CHUYỂN TRANG
   localStorage.setItem("lastBooking", JSON.stringify(bookingInfo));

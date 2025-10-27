@@ -15,28 +15,35 @@ if (registerForm) {
     if (!role) return alert("Please select a role!");
 
     try {
+      // Lấy danh sách user hiện có
       const res = await fetch(apiUrl);
+      if (!res.ok) throw new Error("Cannot fetch users");
       const users = await res.json();
 
+      // Kiểm tra trùng email
       if (users.some((u) => u.email === email)) {
         alert("Email has been registered!");
         return;
       }
 
-      await fetch(apiUrl, {
+      // Gửi request tạo mới user
+      const postRes = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, phone, password, role }),
       });
 
+      if (!postRes.ok) throw new Error("Failed to register user");
+
       alert("Registration successful!");
       window.location.href = "login.html";
     } catch (error) {
       console.error("Register error:", error);
-      alert("Something went wrong!");
+      alert("Something went wrong! Check console for details.");
     }
   });
 }
+
 
 // ---------------- LOGIN ----------------
 const loginForm = document.getElementById("loginForm");
