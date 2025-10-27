@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInfo = document.getElementById("userInfo");
   const closeModal = document.getElementById("closeModal");
 
-  // 🔹 Lấy thông tin người dùng đang đăng nhập
+  // Lấy thông tin người dùng đang đăng nhập
   const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-  // 🔹 Cập nhật giao diện menu
+  // Cập nhật giao diện menu
   function updateMenu() {
     if (currentUser) {
       if (guestMenu) guestMenu.classList.add("hidden");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🔹 Mở modal hiển thị thông tin người dùng
+  // Mở modal hiển thị thông tin người dùng
   if (userAvatar) {
     userAvatar.addEventListener("click", () => {
       const current = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -50,14 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🔹 Đóng modal khi bấm nút
+  // Đóng modal khi bấm nút
   if (closeModal) {
     closeModal.addEventListener("click", () => {
       if (userModal) userModal.style.display = "none";
     });
   }
 
-  // 🔹 Click ra ngoài modal để đóng
+  // Click ra ngoài modal để đóng
   if (userModal) {
     userModal.addEventListener("click", (e) => {
       if (e.target === userModal) {

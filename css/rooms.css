@@ -61,10 +61,12 @@ body {
   align-items: center;
   padding: 0 15px;
 }
+
 .search-wrapper {
   position: relative;
   flex: 1;
 }
+
 .search-wrapper input {
   width: 100%;
   padding: 10px 40px 10px 10px;
@@ -72,10 +74,12 @@ body {
   border-radius: 5px;
   font-size: 16px;
 }
+
 .search-wrapper input::placeholder {
   color: #474747;
   opacity: 1;
 }
+
 .search-wrapper .bi-search {
   position: absolute;
   right: 10px;
@@ -84,6 +88,7 @@ body {
   color: #666;
   font-size: 18px;
 }
+
 .search-filter-container select {
   padding: 10px;
   border: 1px solid #ccc;
@@ -91,6 +96,7 @@ body {
   font-size: 16px;
   min-width: 200px;
 }
+
 .feature-section.hidden {
   display: none;
 }
@@ -146,7 +152,7 @@ body {
   width: 100%; /* Ảnh chiếm hết khung */
   height: 250px; /* Chiều cao cố định */
   object-fit: cover; /* Cắt ảnh cho đẹp */
-  border-radius: 8px; /* Bo góc nhẹ */
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -217,7 +223,7 @@ body {
 .image-row img {
   width: 100%; /* Ảnh chiếm hết khung */
   height: 250px; /* Chiều cao cố định */
-  object-fit: cover; /* Cắt ảnh đẹp */
+  object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }

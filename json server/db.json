@@ -369,6 +369,14 @@
       "password": "1111",
       "role": "user",
       "id": 6
+    },
+    {
+      "name": "Hoàng Lê Kim Ngân",
+      "email": "kngan@gmail.com",
+      "phone": "0987654321",
+      "password": "1234",
+      "role": "user",
+      "id": 7
     }
   ],
   "bookings": [

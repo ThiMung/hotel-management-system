@@ -1,13 +1,13 @@
 const API_URL = "http://localhost:3000";
 
-// 🟢 Kiểm tra quyền admin
+// Kiểm tra quyền admin
 const user = JSON.parse(localStorage.getItem("loggedInUser"));
 if (!user || user.role !== "admin") {
   alert("You do not have permission to access this page!");
   window.location.href = "/index.html";
 }
 
-// 🟢 Logout
+// Logout
 document.getElementById("logoutBtn")?.addEventListener("click", () => {
   localStorage.removeItem("loggedInUser");
   window.location.href = "../index.html"; // chuyển về index

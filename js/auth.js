@@ -66,7 +66,7 @@ if (loginForm) {
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       alert("Login successful!");
 
-      // ✅ Phân trang theo vai trò
+      // Phân trang theo vai trò
       if (user.role === "admin") {
         window.location.href = "admin.html";
       } else {
