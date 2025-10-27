@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     vip: 2800000,
   };
 
-  // ✅ Tự động chọn phòng từ URL nếu có
+  // Tự động chọn phòng từ URL nếu có
   const urlParams = new URLSearchParams(window.location.search);
   const roomFromUrl = urlParams.get("room");
   if (roomFromUrl && ["single", "double", "family", "vip"].includes(roomFromUrl)) {
     roomSelect.value = roomFromUrl;
   }
 
-  // ✅ Đồng bộ từ localStorage (giữ dịch vụ đã chọn)
+  // Đồng bộ từ localStorage (giữ dịch vụ đã chọn)
   function syncFromStorage() {
     const stored = JSON.parse(localStorage.getItem("selectedServices") || "[]");
     serviceCheckboxes.forEach((cb) => {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTotal();
   }
 
-  // ✅ Cập nhật tổng và danh sách dịch vụ
+  // Cập nhật tổng và danh sách dịch vụ
   function updateTotal() {
     const selected = Array.from(serviceCheckboxes)
       .filter((cb) => cb.checked)
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     serviceTotal.textContent = total.toLocaleString();
   }
 
-  // ✅ Xóa 1 dịch vụ
+  // Xóa 1 dịch vụ
   window.removeService = function (index) {
     const selected = JSON.parse(localStorage.getItem("selectedServices") || "[]");
     const nameToRemove = selected[index].name.toLowerCase();
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTotal();
   };
 
-  // ✅ Thông báo
+  // Thông báo
   function showMsg(text, type) {
     msg.textContent = text;
     msg.className = type;
@@ -84,59 +84,59 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   }
 
-  // ✅ Xử lý khi submit form - SỬA LẠI PHẦN NÀY
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+// Xử lý khi submit form - SỬA LẠI
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const checkIn = document.getElementById("checkIn").value;
-    const checkOut = document.getElementById("checkOut").value;
-    const today = new Date().toISOString().split("T")[0];
+  const checkIn = document.getElementById("checkIn").value;
+  const checkOut = document.getElementById("checkOut").value;
+  const today = new Date().toISOString().split("T")[0];
 
-    if (!roomSelect.value) return showMsg("Please select a room.", "error");
-    if (checkIn < today) return showMsg("Check-in cannot be in the past.", "error");
-    if (checkOut <= checkIn) return showMsg("Check-out must be after check-in.", "error");
+  if (!roomSelect.value) return showMsg("Please select a room.", "error");
+  if (checkIn < today) return showMsg("Check-in cannot be in the past.", "error");
+  if (checkOut <= checkIn) return showMsg("Check-out must be after check-in.", "error");
 
-    // TÍNH TOÁN LẠI TOTAL ĐỂ CHẮC CHẮN
-    const selectedServices = JSON.parse(localStorage.getItem("selectedServices") || "[]");
-    const roomType = roomSelect.value;
-    const qty = parseInt(roomQuantity.value) || 1;
-    
-    const checkInDate = new Date(checkIn);
-    const checkOutDate = new Date(checkOut);
-    const days = Math.ceil((checkOutDate - checkInDate) / 86400000) || 1;
-    
-    let total = roomPrices[roomType] * qty * days;
-    selectedServices.forEach(s => total += s.price);
+  // TÍNH TOÁN LẠI TOTAL
+  const selectedServices = JSON.parse(localStorage.getItem("selectedServices") || "[]");
+  const roomType = roomSelect.value;
+  const qty = parseInt(roomQuantity.value) || 1;
+  
+  const checkInDate = new Date(checkIn);
+  const checkOutDate = new Date(checkOut);
+  const days = Math.ceil((checkOutDate - checkInDate) / 86400000) || 1;
+  
+  let total = roomPrices[roomType] * qty * days;
+  selectedServices.forEach(s => total += s.price);
 
-    const bookingInfo = {
-      name: document.getElementById("customerName").value,
-      phone: document.getElementById("customerPhone").value,
-      roomType: roomType,
-      quantity: qty,
-      checkIn: checkIn,
-      checkOut: checkOut,
-      services: selectedServices,
-      total: total // LƯU DẠNG SỐ, KHÔNG PHẢI STRING
-    };
+  const bookingInfo = {
+    name: document.getElementById("customerName").value,
+    phone: document.getElementById("customerPhone").value,
+    roomType: roomType,
+    quantity: qty,
+    checkIn: checkIn,
+    checkOut: checkOut,
+    services: selectedServices,
+    total: total
+  };
 
-    console.log("Saving booking data:", bookingInfo); // Debug
-    
-    // LƯU VÀ CHUYỂN TRANG
-    localStorage.setItem("lastBooking", JSON.stringify(bookingInfo));
-      // ĐỢI 100ms ĐỂ ĐẢM BẢO DỮ LIỆU ĐƯỢC LƯU
+  console.log("Saving booking data:", bookingData);
+  
+  // LƯU VÀ CHUYỂN TRANG
+  localStorage.setItem("lastBooking", JSON.stringify(bookingInfo));
+  
+  // THÊM DELAY ĐỂ ĐẢM BẢO DỮ LIỆU ĐƯỢC LƯU
   setTimeout(() => {
-    console.log("➡️ Redirecting to booking-success.html");
+    console.log("Redirecting to booking-success.html");
     window.location.href = "booking-success.html";
   }, 100);
-    // window.location.href = "booking-success.html";
-  });
+});
 
 
-  // ✅ Gắn sự kiện khi thay đổi input
+  // Gắn sự kiện khi thay đổi input
   [roomSelect, roomQuantity, document.getElementById("checkIn"), document.getElementById("checkOut")]
     .forEach((el) => el?.addEventListener("change", updateTotal));
   serviceCheckboxes.forEach((cb) => cb.addEventListener("change", updateTotal));
 
-  // ✅ Khởi chạy ban đầu
+  // Khởi chạy ban đầu
   syncFromStorage();
 });
